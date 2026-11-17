@@ -54,6 +54,19 @@ nav a {
 
 .hero h1 {
   font-size: 38px;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+/* Nouveau style du titre en khmer */
+.hero .khmer-title {
+  font-family: "Noto Sans Khmer", "Khmer OS Battambang",
+               "Khmer UI", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--dark);
+  margin: 10px auto 24px;
 }
 
 .hero p {
@@ -186,6 +199,14 @@ footer {
     width: 100%;
     margin-bottom: 10px;
   }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero .khmer-title {
+    font-size: 22px;
+  }
 }
 </style>
 </head>
@@ -194,6 +215,7 @@ footer {
 
 <header>
   <h2>Mon espace pédagogique</h2>
+
   <nav>
     <a href="#rubriques">Rubriques</a>
     <a href="#quiz">Quiz</a>
@@ -202,48 +224,78 @@ footer {
 </header>
 
 <section class="hero">
-  <h1>Bienvenue dans ton espace d'apprentissage !</h1>
+
+  <!-- Titre en français -->
+  <h1>
+    Bienvenue dans ton espace d'apprentissage !
+  </h1>
+
+  <!-- Traduction en khmer -->
+  <h2 class="khmer-title" lang="km">
+    សូមស្វាគមន៍មកកាន់កន្លែងសិក្សារបស់អ្នក
+  </h2>
+
   <p>
     Découvre, apprends, entraîne-toi et progresse
     à ton rythme grâce à des activités interactives.
   </p>
-  <a href="#rubriques" class="button">Commencer à apprendre</a>
+
+  <a href="#rubriques" class="button">
+    Commencer à apprendre
+  </a>
+
 </section>
 
 <section id="rubriques">
+
   <h2>Mes quatre rubriques</h2>
-  <p class="intro">Choisis une rubrique pour apprendre.</p>
+
+  <p class="intro">
+    Choisis une rubrique pour apprendre.
+  </p>
 
   <div class="rubriques">
 
     <div class="carte">
       <h3>📚 1. Découvrir</h3>
-      <p>Des leçons et des explications simples pour comprendre.</p>
+      <p>
+        Des leçons et des explications simples pour comprendre.
+      </p>
     </div>
 
     <div class="carte">
       <h3>✏️ 2. S'entraîner</h3>
-      <p>Des exercices pour pratiquer et progresser.</p>
+      <p>
+        Des exercices pour pratiquer et progresser.
+      </p>
     </div>
 
     <div class="carte">
       <h3>🎮 3. Jouer et réviser</h3>
-      <p>Des quiz et des jeux pour apprendre autrement.</p>
+      <p>
+        Des quiz et des jeux pour apprendre autrement.
+      </p>
     </div>
 
     <div class="carte">
       <h3>⭐ 4. Faire le bilan</h3>
-      <p>Évalue tes progrès et découvre tes réussites.</p>
+      <p>
+        Évalue tes progrès et découvre tes réussites.
+      </p>
     </div>
 
   </div>
 </section>
 
 <section id="quiz">
+
   <h2>🎯 Petit quiz</h2>
 
   <div class="quiz">
-    <h3>Quelle attitude aide à mieux apprendre ?</h3>
+
+    <h3>
+      Quelle attitude aide à mieux apprendre ?
+    </h3>
 
     <button onclick="verifier(false)">
       Abandonner dès la première difficulté.
@@ -258,21 +310,26 @@ footer {
     </button>
 
     <p id="feedback"></p>
+
   </div>
 </section>
 
 <section id="assistant">
+
   <h2>🤖 Mon assistant pédagogique</h2>
 
   <div class="assistant">
+
     <p>
       Bonjour ! Je suis ton assistant pédagogique.
       Pose-moi une question ou demande-moi un indice.
     </p>
 
     <div id="messages">
+
       <strong>Assistant :</strong>
       Bonjour ! Comment puis-je t'aider ?
+
     </div>
 
     <input
@@ -291,25 +348,33 @@ footer {
         Une véritable IA pourra être connectée ultérieurement.
       </small>
     </p>
+
   </div>
 </section>
 
 <footer>
-  <p>Mon espace pédagogique - Apprendre avec plaisir !</p>
+  <p>
+    Mon espace pédagogique - Apprendre avec plaisir !
+  </p>
 </footer>
 
 <script>
 
 // Fonction du quiz
 function verifier(correct) {
+
   const feedback = document.getElementById("feedback");
 
   if(correct) {
+
     feedback.textContent =
       "Bravo ! Tu as trouvé la bonne réponse ! 🌟";
+
   } else {
+
     feedback.textContent =
       "Essaie encore ! Réfléchis à la meilleure attitude.";
+
   }
 }
 
@@ -346,6 +411,7 @@ function envoyerQuestion() {
 
     reponse =
       "Merci pour ta question ! Consulte ton cours et précise ce que tu souhaites comprendre. Je suis encore en version de démonstration.";
+
   }
 
   messages.innerHTML +=
@@ -363,7 +429,9 @@ function envoyerQuestion() {
 
 // Protection contre l'insertion de code HTML
 function echapper(texte) {
+
   return texte.replace(/[&<>"']/g, function(caractere) {
+
     return {
       "&": "&amp;",
       "<": "&lt;",
@@ -371,7 +439,9 @@ function echapper(texte) {
       '"': "&quot;",
       "'": "&#039;"
     }[caractere];
+
   });
+
 }
 
 </script>
