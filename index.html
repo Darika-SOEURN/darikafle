@@ -1,1 +1,381 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon espace pédagogique</title>
+
+<style>
+:root {
+  --mint: #DCEDE5;
+  --sage: #A7CBB8;
+  --green: #527C6B;
+  --ivory: #F8F6EF;
+  --dark: #263F37;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--ivory);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--mint);
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header h2 {
+  margin: 0;
+}
+
+nav a {
+  color: var(--dark);
+  text-decoration: none;
+  margin: 8px;
+  font-weight: bold;
+}
+
+.hero {
+  padding: 70px 8%;
+  background: var(--mint);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 38px;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 650px;
+  margin: 20px auto;
+}
+
+.button {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+section {
+  padding: 45px 7%;
+}
+
+h2 {
+  text-align: center;
+}
+
+.intro {
+  text-align: center;
+}
+
+.rubriques {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.carte {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px #263f3715;
+  text-align: center;
+}
+
+.carte h3 {
+  color: var(--green);
+}
+
+.quiz {
+  background: var(--mint);
+  padding: 25px;
+  border-radius: 16px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.quiz button {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 14px;
+  border: 1px solid var(--sage);
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.quiz button:hover {
+  background: var(--sage);
+}
+
+#feedback {
+  font-weight: bold;
+}
+
+.assistant {
+  max-width: 700px;
+  margin: auto;
+  padding: 25px;
+  background: white;
+  border-radius: 16px;
+}
+
+#messages {
+  background: var(--ivory);
+  padding: 15px;
+  min-height: 120px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.assistant input {
+  width: 70%;
+  padding: 12px;
+  border: 1px solid var(--sage);
+  border-radius: 8px;
+}
+
+footer {
+  background: var(--dark);
+  color: white;
+  padding: 25px;
+  text-align: center;
+}
+
+@media(max-width: 800px) {
+  .rubriques {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 500px) {
+  .rubriques {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    display: block;
+  }
+
+  nav {
+    margin-top: 15px;
+  }
+
+  .assistant input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>Mon espace pédagogique</h2>
+  <nav>
+    <a href="#rubriques">Rubriques</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#assistant">Assistant IA</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Bienvenue dans ton espace d'apprentissage !</h1>
+  <p>
+    Découvre, apprends, entraîne-toi et progresse
+    à ton rythme grâce à des activités interactives.
+  </p>
+  <a href="#rubriques" class="button">Commencer à apprendre</a>
+</section>
+
+<section id="rubriques">
+  <h2>Mes quatre rubriques</h2>
+  <p class="intro">Choisis une rubrique pour apprendre.</p>
+
+  <div class="rubriques">
+
+    <div class="carte">
+      <h3>📚 1. Découvrir</h3>
+      <p>Des leçons et des explications simples pour comprendre.</p>
+    </div>
+
+    <div class="carte">
+      <h3>✏️ 2. S'entraîner</h3>
+      <p>Des exercices pour pratiquer et progresser.</p>
+    </div>
+
+    <div class="carte">
+      <h3>🎮 3. Jouer et réviser</h3>
+      <p>Des quiz et des jeux pour apprendre autrement.</p>
+    </div>
+
+    <div class="carte">
+      <h3>⭐ 4. Faire le bilan</h3>
+      <p>Évalue tes progrès et découvre tes réussites.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="quiz">
+  <h2>🎯 Petit quiz</h2>
+
+  <div class="quiz">
+    <h3>Quelle attitude aide à mieux apprendre ?</h3>
+
+    <button onclick="verifier(false)">
+      Abandonner dès la première difficulté.
+    </button>
+
+    <button onclick="verifier(true)">
+      Réfléchir, essayer et demander un indice.
+    </button>
+
+    <button onclick="verifier(false)">
+      Copier sans comprendre.
+    </button>
+
+    <p id="feedback"></p>
+  </div>
+</section>
+
+<section id="assistant">
+  <h2>🤖 Mon assistant pédagogique</h2>
+
+  <div class="assistant">
+    <p>
+      Bonjour ! Je suis ton assistant pédagogique.
+      Pose-moi une question ou demande-moi un indice.
+    </p>
+
+    <div id="messages">
+      <strong>Assistant :</strong>
+      Bonjour ! Comment puis-je t'aider ?
+    </div>
+
+    <input
+      type="text"
+      id="question"
+      placeholder="Écris ta question..."
+    >
+
+    <button class="button" onclick="envoyerQuestion()">
+      Envoyer
+    </button>
+
+    <p>
+      <small>
+        Version de démonstration : les réponses sont prédéfinies.
+        Une véritable IA pourra être connectée ultérieurement.
+      </small>
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p>Mon espace pédagogique - Apprendre avec plaisir !</p>
+</footer>
+
+<script>
+
+// Fonction du quiz
+function verifier(correct) {
+  const feedback = document.getElementById("feedback");
+
+  if(correct) {
+    feedback.textContent =
+      "Bravo ! Tu as trouvé la bonne réponse ! 🌟";
+  } else {
+    feedback.textContent =
+      "Essaie encore ! Réfléchis à la meilleure attitude.";
+  }
+}
+
+// Assistant pédagogique de démonstration
+function envoyerQuestion() {
+
+  const input = document.getElementById("question");
+  const messages = document.getElementById("messages");
+
+  const question = input.value.trim().toLowerCase();
+
+  if(question === "") {
+    return;
+  }
+
+  let reponse = "";
+
+  if(question.includes("indice") || question.includes("aide")) {
+
+    reponse =
+      "Bien sûr ! Relis la consigne et cherche les mots importants. Quelle première étape pourrais-tu essayer ?";
+
+  } else if(question.includes("explique")) {
+
+    reponse =
+      "Pas de problème ! Essaie de reformuler la notion avec tes propres mots. Quelle partie te semble difficile ?";
+
+  } else if(question.includes("exercice") || question.includes("quiz")) {
+
+    reponse =
+      "Voici un défi : explique ce que tu as appris en une phrase et invente un exemple !";
+
+  } else {
+
+    reponse =
+      "Merci pour ta question ! Consulte ton cours et précise ce que tu souhaites comprendre. Je suis encore en version de démonstration.";
+  }
+
+  messages.innerHTML +=
+    "<p><strong>Toi :</strong> " +
+    echapper(question) +
+    "</p>";
+
+  messages.innerHTML +=
+    "<p><strong>Assistant :</strong> " +
+    echapper(reponse) +
+    "</p>";
+
+  input.value = "";
+}
+
+// Protection contre l'insertion de code HTML
+function echapper(texte) {
+  return texte.replace(/[&<>"']/g, function(caractere) {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    }[caractere];
+  });
+}
+
+</script>
+
+</body>
+</html>
